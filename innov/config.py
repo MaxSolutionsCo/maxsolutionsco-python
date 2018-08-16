@@ -4,7 +4,7 @@
 __version__ = '1.0.0'
 
 __github_username__ = 'YonnXyz'
-__guthub_reponame__ = 'innov-python'
+__github_reponame__ = 'innov-python'
 
 __endpoint_map__ = {
     'live': 'https://api.innov.biz',
