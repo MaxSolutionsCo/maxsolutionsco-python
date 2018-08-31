@@ -12,19 +12,13 @@ class Cfdi:
         return api.post(path, data)
 
     @classmethod
-    def cancel(cls, rfc, uuid, api=None):
+    def cancel(cls, rfc_issuer, uuid, api=None):
         api = api or default_api()
-        path = join_url(cls.path, 'stamp', rfc, uuid)
+        path = join_url(cls.path, 'stamp', rfc_issuer, uuid)
         return api.delete(path)
 
     @classmethod
     def validate_uuid(cls, data, api=None):
-        """
-
-        :param data:
-        :param api:
-        :return:
-        """
         path = join_url(cls.path, 'validate/uuid')
         api = api or default_api()
         return api.post(path, data)

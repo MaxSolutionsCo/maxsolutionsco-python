@@ -1,10 +1,10 @@
 # Innov Python SDK
 
-## Instaltion 
-install usign pip : 
+## Installation 
+Install usign pip : 
 
 ```bash
-    pip install https://github.com/YonnXyz/innov-python
+    pip install git+https://github.com/YonnXyz/innov-python
 ```
 ## Configuration 
 Register for an account and get your client_id and client_secret at [Live](https://innov.biz) or [Sandbox](https://sandbox.innov.biz).
