@@ -26,19 +26,19 @@ class Cfdi:
         return api.post(path, data)
 
     @classmethod
-    def chain(cls, data, api):
+    def chain(cls, data, api=None):
         path = join_url(cls.path, 'chain')
         api = api or default_api()
         return api.post(path, data)
 
     @classmethod
-    def chain_cfdi(cls, data, api):
+    def chain_cfdi(cls, data, api=None):
         path = join_url(cls.path, 'chain/cfdi')
         api = api or default_api()
         return api.post(path, data)
 
     @classmethod
-    def chain_tfd(cls, data, api):
+    def chain_tfd(cls, data, api=None):
         path = join_url(cls.path, 'chain/tfd')
         api = api or default_api()
         return api.post(path, data)
