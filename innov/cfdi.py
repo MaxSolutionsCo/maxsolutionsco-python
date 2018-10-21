@@ -52,3 +52,19 @@ class CfdiPayment:
         api = api or default_api()
         path = join_url(cls.path, 'stamp')
         return api.post(path, data)
+
+
+class CfdiCsd:
+    path = 'v1/cfdi/'
+
+    @classmethod
+    def create(cls, data, api=None):
+        api = api or default_api()
+        path = join_url(cls.path, 'csd')
+        return api.post(path, data)
+
+    @classmethod
+    def update(cls, data, api=None):
+        api = api or default_api()
+        path = join_url(cls.path, 'csd', data.get('Rfc'))
+        return api.put(path, data)

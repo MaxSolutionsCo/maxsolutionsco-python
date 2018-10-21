@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # © Yonn, Xyz. All rights reserved.
 
-__version__ = '1.0.1'
+__version__ = '1.0.2'
 
 __github_username__ = 'YonnXyz'
 __github_reponame__ = 'innov-python'
