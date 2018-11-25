@@ -12,10 +12,10 @@ setup(
     version=__version__,
     url=url,
     license='Apache 2.0',
-    author='Yonn, Xyz',
+    author='Max Solutions, Co',
     packages=['innov'],
-    author_email='dev@yonn.xyz',
-    description='Python SDK for the Innov Biz API',
+    author_email='dev@max-solutions.co',
+    description='Python SDK for the Max Solutions Co API',
     install_requires=[],
     tests_require=[],
     classifiers=[

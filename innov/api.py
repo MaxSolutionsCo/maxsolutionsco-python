@@ -106,8 +106,8 @@ class Api(object):
     def request(self, url, method, body=None, headers=None, refresh_token=None):
         """Make HTTP call, formats response and does error handling. Uses http_call method in API class.
         Usage::
-            >>> api.request("https://api.sandbox.innov.biz/v1/cfdi?id=10", "GET", {})
-            >>> api.request("https://api.sandbox.innov.biz/v1/cfdi/stamp", "POST", "{}", {} )
+            >>> api.request("https://api.sandbox.max-solutions.co/v1/cfdi?id=10", "GET", {})
+            >>> api.request("https://api.sandbox.max-solutions.co/v1/cfdi/stamp", "POST", "{}", {} )
         """
 
         http_headers = merge_dict(self.headers(refresh_token=refresh_token, headers=headers or {}), headers or {})

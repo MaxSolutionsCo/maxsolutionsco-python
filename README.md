@@ -1,13 +1,13 @@
-# Innov Python SDK
+# Max Solutions Co Python SDK
 
 ## Installation 
 Install usign pip : 
 
 ```bash
-    pip install git+https://github.com/YonnXyz/innov-python
+    pip install git+https://github.com/MaxSolutionsCo/innov-python
 ```
 ## Configuration 
-Register for an account and get your client_id and client_secret at [Live](https://innov.biz) or [Sandbox](https://sandbox.innov.biz).
+Register for an account and get your client_id and client_secret at [Live](https://max-solutions.co) or [Sandbox](https://api.sandbox.max-solutions.co).
 ```python 
 import innov 
 innov.configure({
@@ -38,4 +38,4 @@ api = innov.Api({
 ## License
 * [Apache 2.0](LICENSE)
 ## Authors 
-* [Yonn, Xyz](https://yonn.xyz)
+* [Max Solutions, Co](https://max-solutions.co)
