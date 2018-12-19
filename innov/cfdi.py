@@ -43,6 +43,12 @@ class Cfdi:
         api = api or default_api()
         return api.post(path, data)
 
+    @classmethod
+    def status(cls, rfc_issuer, uuid, api=None):
+        api = api or default_api()
+        path = join_url(cls.path, 'stamp/status', rfc_issuer, uuid)
+        return api.get(path)
+
 
 class CfdiPayment:
     path = 'v1/cfdi/payment/'
