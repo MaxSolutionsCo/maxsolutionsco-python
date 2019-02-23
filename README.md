@@ -6,6 +6,13 @@ Install usign pip :
 ```bash
     pip install git+https://github.com/MaxSolutionsCo/innov-python
 ```
+or : 
+```bash
+    git clone https://github.com/MaxSolutionsCo/innov-python.git
+    cd innov-python
+    python setup.py install
+```
+
 ## Configuration 
 Register for an account and get your client_id and client_secret at [Live](https://max-solutions.co) or [Sandbox](https://api.sandbox.max-solutions.co).
 ```python 
