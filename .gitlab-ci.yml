@@ -4,3 +4,5 @@ test:
   - apt-get update -qy
   - pip install -r requirements.txt
   - python setup.py test
+  only:
+  - develop
