@@ -1,5 +1,17 @@
+import sys
 import base64
 import uuid
+
+sys.path.insert(0, 'innov')
+import innov
+
+
+def get_innov():
+    return innov.configure({
+        'mode': 'sandbox',  # sandbox or live
+        'client_id': 'MchnpOAnR3tanm4DAdFJxyZkdiY5MHlKS.ymwfiyBTjgD.HUD_k5Pf6Lf1cT0Jci',
+        'client_secret': 'Lswkus9FhETS7i-gJrUFFPv5lnFSJ-F3pB8ArK93dA74cLOvPfglZKJxIi9hl-44QbbqnsotLHSFk.F73gL-i3W0a5SqdivWXkUB76Yi9GaV6t7lNqsne2B6o4Mgl52b'
+    })
 
 
 def is_base64(s):
