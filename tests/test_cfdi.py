@@ -1,21 +1,11 @@
-import sys
 import random
 import datetime
-from .commun import is_base64, response_keys, is_uuid, open_file
-
-sys.path.insert(0, 'innov')
+from .commun import is_base64, response_keys, is_uuid, open_file, get_innov
+get_innov()
 import innov
-
-api = innov.configure({
-    'mode': 'sandbox',  # sandbox or live
-    'client_id': 'MchnpOAnR3tanm4DAdFJxyZkdiY5MHlKS.ymwfiyBTjgD.HUD_k5Pf6Lf1cT0Jci',
-    'client_secret': 'Lswkus9FhETS7i-gJrUFFPv5lnFSJ-F3pB8ArK93dA74cLOvPfglZKJxIi9hl-44QbbqnsotLHSFk.F73gL-i3W0a5SqdivWXkUB76Yi9GaV6t7lNqsne2B6o4Mgl52b'
-})
 
 
 class TestCfdi(object):
-    def test_sign_in(self):
-        assert len(api.get_token_hash()) == 498, "Fail authentication"
 
     def test_validate_uuid(self):
         data = {
@@ -87,19 +77,19 @@ class TestCfdi(object):
         assert is_base64(payload['ContentXml'])
         assert is_uuid(payload['Uuid'])
 
+    """
     def test_stamp_cancel(self):
-        """
+        
             Staging environment is not possible cancel UUID,
             only allowed on live environment.
-        """
-        """
+        
+        
         response = innov.Cfdi.cancel('LAN7008173R5', 'E4CF456D-C482-4F10-A9B5-F5A0CE4AB0FB')
         assert response_keys(response)
         payload = response['Payload']
         assert isinstance(payload, dict)
         assert 'State' in list(payload.keys())
-        """
-        pass
+    """
 
     def test_chain(self):
         data = {
