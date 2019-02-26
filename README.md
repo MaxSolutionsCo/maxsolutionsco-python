@@ -1,13 +1,40 @@
 # Max Solutions Co Python SDK
 
-## Installation 
-Install usign pip : 
+## Contenido
+* Instación
+* Configuracion
+    * Global
+    * Variables de entorno
+    * No global
+* Contabilidad y Finanzas 
+    * Certificados
+        * Subir CSD
+        * Actualizar CSD
+    * Facturacion
+        * Timbrar CFDI 3.3
+        * Cancelar CFDI 3.3
+    * Herramientas
+        * Crear cadena TFD y CFDI
+        * Validar UUID SAT
+* Licencia
+* Autor
+
+## Instalación 
+
+Usando ``pip``: 
 
 ```bash
     pip install git+https://github.com/MaxSolutionsCo/innov-python
 ```
-## Configuration 
-Register for an account and get your client_id and client_secret at [Live](https://max-solutions.co) or [Sandbox](https://api.sandbox.max-solutions.co).
+o: 
+```bash
+    git clone https://github.com/MaxSolutionsCo/innov-python.git
+    cd innov-python
+    python setup.py install
+```
+
+## Configuración 
+Regístrese para obtener una cuenta y obtenga su ``client_id`` y ``client_secret`` en [Producción](https://max-solutions.co) o [Pruebas](https://api.sandbox.max-solutions.co).
 ```python 
 import innov 
 innov.configure({
@@ -16,16 +43,15 @@ innov.configure({
     'client_secret':'Lswkus9FhETS7i-gJrUFFPv5lnFSJ-F3pB8ArK93dA74cLOvPfglZKJxIi9hl-44QbbqnsotLHSFk.F73gL-i3W0a5SqdivWXkUB76Yi9GaV6t7lNqsne2B6o4Mgl52b'
 })
 ```
-
-configure through environment variables 
+configurar a través de variables de entorno
 
 ```bash
 export INNOV_MODE=sandbox   
 export INNOV_CLIENT_ID=MchnpOAnR3tanm4DAdFJxyZkdiY5MHlKS.ymwfiyBTjgD.HUD_k5Pf6Lf1cT0Jci
 export INNOV_CLIENT_SECRET=Lswkus9FhETS7i-gJrUFFPv5lnFSJ-F3pB8ArK93dA74cLOvPfglZKJxIi9hl-44QbbqnsotLHSFk.F73gL-i3W0a5SqdivWXkUB76Yi9GaV6t7lNqsne2B6o4Mgl52b
 ```
-Configure through no-global API object 
-```bash
+Configurar a través de un objeto API no global
+```python
 api = innov.Api({
     'mode':'sandbox',
     'client_id':'MchnpOAnR3tanm4DAdFJxyZkdiY5MHlKS.ymwfiyBTjgD.HUD_k5Pf6Lf1cT0Jci',
@@ -33,9 +59,114 @@ api = innov.Api({
 })
     
 ```
+## Contabilidad y finanzas
+### Certificados
+#### Subir CSD
+```python
+data = {
+    'CompanyName': "Max Solutions, Co",
+    'Rfc': "LAN7008173R5",
+    'Certificate': "aG9s...YQo=",
+    'PrivateKey': "aG9s...YQo=",
+    'PrivateKeyPassword': "12345678a",
+}
+response = innov.CfdiCsd.create(data=data)
 
+```
+#### Actualizar CSD
+```python
+data = {
+    'CompanyName': "Max Solutions, Co",
+    'Rfc': "LAN7008173R5",
+    'Certificate': "aG9s...YQo=",
+    'PrivateKey': "aG9s...YQo=",
+    'PrivateKeyPassword': "12345678a",
+}
+response = innov.CfdiCsd.update(data=data)
 
-## License
+```
+### Facturación 
+#### Timbrar CFDI 3.3 
+```python
+data = {
+    "Folio": str(random.randint(1, 1000000)),
+    "Serie": "R",
+    "Currency": "MXN",
+    "Rate": 1,
+    "Date": datetime.datetime.today().strftime('%Y-%m-%d %H:%M'),
+    "ExpeditionPlace": "77500",
+    "PaymentConditions": "CREDITO A SIETE DIAS",
+    "CfdiType": "I",
+    "PaymentForm": "03",
+    "PaymentMethod": "PUE",
+    "Receiver": {
+        "Rfc": "XAXX010101000",
+        "Name": "RADIAL SOFTWARE SOLUTIONS",
+        "CfdiUse": "G02"
+    },
+    "Issuer": {
+        "FiscalRegime": "601",
+        "Name": "MAx Solutions Co",
+        "Rfc": "LAN7008173R5"
+    },
+    "Items": [
+        {
+            "ProductCode": "10101504",
+            "IdentificationNumber": "EDL",
+            "Description": "Tarjeta gráfica",
+            "Unit": "Unidad(es)",
+            "UnitCode": "A14",
+            "UnitPrice": 50,
+            "Quantity": 2,
+            "Subtotal": 100,
+            "Taxes": [
+                {
+                    "Total": 16,
+                    "Name": "IVA",
+                    "Code": "002",
+                    "Type": "Tasa",
+                    "Base": 100,
+                    "Rate": 0.16,
+                    "IsRetention": False
+                }
+            ],
+            "Total": 116
+        }
+    ]
+}
+response = innov.Cfdi.stamp(data=data)
+```
+#### Cancelar CFDI 3.3 
+```python
+response = innov.Cfdi.cancel(rfc_issuer='LAN7008173R5', uuid='E4CF456D-C482-4F10-A9B5-F5A0CE4AB0FB')
+```
+### Herramientas
+####  Crear cadena TFD y CFDI
+```python
+data = {
+    'ContentXml': "aG9s...YQo="
+}
+response = innov.Cfdi.chain(data=data)
+# or 
+response = innov.Cfdi.chain_tfd(data=data)
+# or 
+response = innov.Cfdi.chain_cfdi(data=data)
+
+```
+#### Validar UUID SAT
+```python
+
+data = {
+    "Uuid": "E4CF456D-C482-4F10-A9B5-F5A0CE4AB0FB",
+    "Issuer": "LAN7008173R5",
+    "Receiver": "XAXX010101000",
+    "Amount": 255.20
+}
+response = innov.Cfdi.validate_uuid(data=[data])
+
+```
+
+## Licencia
 * [Apache 2.0](LICENSE)
-## Authors 
+## Autor
 * [Max Solutions, Co](https://max-solutions.co)
