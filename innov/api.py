@@ -49,7 +49,7 @@ class Api(object):
             "Username": self.client_id,
             "Password": self.client_secret
         }
-
+        method = "POST"
         if authorization_code is not None:
             """payload = "grant_type=authorization_code&response_type=token&redire" \
                       "ct_uri=urn:ietf:wg:oauth:2.0:oob&code=" + \
@@ -57,8 +57,9 @@ class Api(object):
             """
             pass
         elif refresh_token is not None:
-            """payload = "grant_type=refresh_token&refresh_token=" + refresh_token"""
-            pass
+            path = "/v1/token-refresh"
+            headers = merge_dict(headers, {'Authorization': 'Bearer %s' % refresh_token})
+            method = "PUT"
         else:
             self.validate_token_hash()
             if self.token_hash is not None:
@@ -66,7 +67,7 @@ class Api(object):
                 return self.token_hash
 
         token = self.http_call(
-            join_url(self.endpoint, path), "POST",
+            join_url(self.endpoint, path), method,
             json=payload,
             headers=merge_dict({
                 "Authorization": "Basic %s" % self.basic_auth(),
@@ -90,18 +91,18 @@ class Api(object):
             if datetime.datetime.now() > datetime.datetime.fromtimestamp(toke_hash_decode.get("exp")):
                 self.token_hash = None
 
-    """def get_access_token(self, authorization_code=None, refresh_token=None, headers=None):
-        Wraps get_token_hash for getting access token 
+    def get_access_token(self, authorization_code=None, refresh_token=None, headers=None):
+        # Wraps get_token_hash for getting access token
         return self.get_token_hash(authorization_code, refresh_token, headers=headers or {})
-    """
-    """def get_refresh_token(self, authorization_code=None, headers=None):
-    Exchange authorization code for refresh token for future payments
-        
-        if authorization_code is None:
-            raise MissingConfig("Authorization code needed to get new refresh token.")
-        return self.get_token_hash(authorization_code, headers=headers or {})
 
-    """
+    def get_refresh_token(self, authorization_code=None, headers=None):
+        # Exchange authorization code for refresh token for future payments
+        if self.token_hash is None:
+            raise MissingConfig("Token hash needed to get new refresh token.")
+        return self.get_token_hash(authorization_code, headers=headers or {}, refresh_token=self.token_hash)
+
+    def logout(self):
+        return self.delete("/v1/logout")
 
     def request(self, url, method, body=None, headers=None, refresh_token=None):
         """Make HTTP call, formats response and does error handling. Uses http_call method in API class.
