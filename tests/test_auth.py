@@ -1,4 +1,4 @@
-from .commun import get_innov
+from .commun import get_innov, response_keys
 
 api = get_innov()
 
@@ -10,7 +10,6 @@ class TestAuth(object):
     def test_token_refresh(self):
         assert len(api.get_refresh_token()) == 498, "Fail token refresh"
 
-    """
     def test_logout(self):
-        logout = api.logout()
-    """
+        response = api.logout()
+        assert response['Success']

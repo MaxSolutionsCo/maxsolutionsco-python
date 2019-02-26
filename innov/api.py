@@ -102,7 +102,7 @@ class Api(object):
         return self.get_token_hash(authorization_code, headers=headers or {}, refresh_token=self.token_hash)
 
     def logout(self):
-        self.delete("/v1/logout")
+        return self.delete("/v1/logout")
 
     def request(self, url, method, body=None, headers=None, refresh_token=None):
         """Make HTTP call, formats response and does error handling. Uses http_call method in API class.
