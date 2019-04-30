@@ -75,8 +75,9 @@ class Api(object):
                 "Accept": "application/json",
                 "User-Agent": self.user_agent
             }, headers or {}))
+        
         token = token.get('Payload').get('Token')
-        if refresh_token is None and authorization_code is None:
+        if refresh_token is None and authorization_code is None or '/v1/token-refresh' == path:
             # cache token for re-use in normal case
             self.token_request_at = datetime.datetime.now()
             self.token_hash = token
