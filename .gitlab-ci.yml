@@ -1,8 +1,10 @@
 before_script:
   - python --version
   - pip install -r requirements.txt
+
 stages:
   - test
+
 python2:
   stage: test
   image: "python:2"
@@ -13,6 +15,7 @@ python2:
     - staging
   tags:
      - l1-max-solutions-co
+
 python3:
   stage: test
   image: "python:3"
@@ -23,6 +26,7 @@ python3:
     - staging
   tags:
      - l1-max-solutions-co
+
 python35:
   stage: test
   image: "python:3.5"
@@ -33,6 +37,7 @@ python35:
     - staging
   tags:
      - l1-max-solutions-co
+     
 python37:
   stage: test
   image: "python:3.7"
