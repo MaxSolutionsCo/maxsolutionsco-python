@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# © Max Solutions, Co. All rights reserved.
 import sys
 import base64
 import uuid

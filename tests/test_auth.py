@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# © Max Solutions, Co. All rights reserved.
 from .commun import get_innov, response_keys
 
 api = get_innov()
