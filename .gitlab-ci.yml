@@ -14,7 +14,7 @@ python2:
     - master
     - staging
   tags:
-     - l1-max-solutions-co
+     - l1_max_solutions_co
 
 python3:
   stage: test
@@ -25,7 +25,7 @@ python3:
     - master
     - staging
   tags:
-     - l1-max-solutions-co
+     - l1_max_solutions_co
 
 python35:
   stage: test
@@ -36,8 +36,8 @@ python35:
     - master
     - staging
   tags:
-     - l1-max-solutions-co
-     
+     - l1_max_solutions_co
+
 python37:
   stage: test
   image: "python:3.7"
@@ -47,4 +47,4 @@ python37:
     - master
     - staging
   tags:
-     - l1-max-solutions-co
+     - l1_max_solutions_co
