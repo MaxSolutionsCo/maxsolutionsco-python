@@ -7,6 +7,6 @@ __github_username__ = 'MaxSolutionsCo'
 __github_reponame__ = 'innov-python'
 
 __endpoint_map__ = {
-    'live': 'https://api.max-solutions.co',
-    'sandbox': 'https://api.sandbox.max-solutions.co',
+    'live': 'https://api.maxs.biz',
+    'sandbox': 'https://api.sandbox.maxs.biz',
 }

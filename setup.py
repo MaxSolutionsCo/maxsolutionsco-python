@@ -16,7 +16,10 @@ setup(
     packages=['innov'],
     author_email='dev@max-solutions.co',
     description='Python SDK for the Max Solutions Co API',
-    install_requires=[],
+    install_requires=[
+        'requests>=2.11.1',
+        'simplejson>=3.16.0'
+    ],
     setup_requires=["pytest-runner"],
     tests_require=["pytest"],
     classifiers=[
