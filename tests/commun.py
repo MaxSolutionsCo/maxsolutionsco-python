@@ -41,7 +41,7 @@ def response_keys(response):
 
 
 def open_file(path, base64encode=False):
-    file = io.open(path, "r", encoding='latin-1')
+    file = io.open(path, "r", encoding='utf-8')
     content = file.read()
     if base64encode:
         return base64.b64encode(content.encode()).decode()
