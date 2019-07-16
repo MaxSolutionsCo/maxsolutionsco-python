@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
+# © Max Solutions, Co. All rights reserved.
 import sys
 import base64
 import uuid
+import platform
 
 sys.path.insert(0, 'innov')
 import innov
@@ -38,8 +41,12 @@ def response_keys(response):
 
 
 def open_file(path, base64encode=False):
-    file = open(path, "r", encoding='latin-1')
-    content = file.read()
+    if platform.python_version()[:3] == '2.7':
+        _file = open(path, "r")
+        content = str(_file.read())
+    elif platform.python_version()[:3] in ['3.5','3.0','3.7']:
+        _file = open(path, "r",encoding='latin-1')
+        content = _file.read().encode()
     if base64encode:
-        return base64.b64encode(content.encode()).decode()
+        return base64.b64encode(content).decode()
     return content

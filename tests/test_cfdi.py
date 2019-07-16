@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# © Max Solutions, Co. All rights reserved.
 import random
 import datetime
 from .commun import is_base64, response_keys, is_uuid, open_file, get_innov
