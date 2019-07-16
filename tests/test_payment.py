@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+# © Max Solutions, Co. All rights reserved.
 import datetime
 from .commun import get_innov, response_keys, is_uuid, is_base64
 
