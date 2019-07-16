@@ -41,10 +41,12 @@ def response_keys(response):
 
 
 def open_file(path, base64encode=False):
-    _file = open(path, "r")
-    content = _file.read()
+    if platform.python_version()[:3] == '2.7':
+        _file = open(path, "r")
+        content = str(_file.read())
+    elif platform.python_version()[:3] in ['3.5','3.0','3.7']:
+        _file = open(path, "r",encoding='latin-1')
+        content = _file.read().encode()
     if base64encode:
-        if platform.python_version()[:3] == '2.7':
-            content = str(content)
         return base64.b64encode(content).decode()
     return content
