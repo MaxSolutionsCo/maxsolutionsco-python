@@ -3,6 +3,7 @@
 import sys
 import base64
 import uuid
+import io
 
 sys.path.insert(0, 'innov')
 import innov
@@ -40,7 +41,7 @@ def response_keys(response):
 
 
 def open_file(path, base64encode=False):
-    file = open(path, "r", encoding='latin-1')
+    file = io.open(path, "r", encoding='latin-1')
     content = file.read()
     if base64encode:
         return base64.b64encode(content.encode()).decode()
