@@ -17,35 +17,35 @@ python27:
   tags:
      - l1_max_solutions_co
 
-python3:
-  stage: test
-  image: "python:3"
-  script: 
-    - python setup.py test
-  except:
-    - master
-    - staging
-  tags:
-     - l1_max_solutions_co
-
-python35:
-  stage: test
-  image: "python:3.5"
-  script: 
-    - python setup.py test
-  except:
-    - master
-    - staging
-  tags:
-     - l1_max_solutions_co
-
-python37:
-  stage: test
-  image: "python:3.7"
-  script: 
-    - python setup.py test
-  except:
-    - master
-    - staging
-  tags:
-     - l1_max_solutions_co
+#python3:
+#  stage: test
+#  image: "python:3"
+#  script: 
+#    - python setup.py test
+#  except:
+#    - master
+#    - staging
+#  tags:
+#     - l1_max_solutions_co
+#
+#python35:
+#  stage: test
+#  image: "python:3.5"
+#  script: 
+#    - python setup.py test
+#  except:
+#    - master
+#    - staging
+#  tags:
+#     - l1_max_solutions_co
+#
+#python37:
+#  stage: test
+#  image: "python:3.7"
+#  script: 
+#    - python setup.py test
+#  except:
+#    - master
+#    - staging
+#  tags:
+#     - l1_max_solutions_co

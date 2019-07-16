@@ -3,7 +3,7 @@
 import sys
 import base64
 import uuid
-import io
+import platform
 
 sys.path.insert(0, 'innov')
 import innov
@@ -41,8 +41,10 @@ def response_keys(response):
 
 
 def open_file(path, base64encode=False):
-    file = io.open(path, "r", encoding='utf-8')
-    content = file.read()
+    _file = open(path, "r")
+    content = _file.read()
     if base64encode:
-        return base64.b64encode(content.encode()).decode()
+        if platform.python_version()[:3] == '2.7':
+            content = str(content)
+        return base64.b64encode(content).decode()
     return content
