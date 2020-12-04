@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # © Max Solutions, Co. All rights reserved.
+import pdb
 import sys
 import base64
 import uuid
@@ -12,8 +13,8 @@ import innov
 def get_innov():
     return innov.configure({
         'mode': 'sandbox',  # sandbox or live
-        'client_id': 'MchnpOAnR3tanm4DAdFJxyZkdiY5MHlKS.ymwfiyBTjgD.HUD_k5Pf6Lf1cT0Jci',
-        'client_secret': 'Lswkus9FhETS7i-gJrUFFPv5lnFSJ-F3pB8ArK93dA74cLOvPfglZKJxIi9hl-44QbbqnsotLHSFk.F73gL-i3W0a5SqdivWXkUB76Yi9GaV6t7lNqsne2B6o4Mgl52b'
+        'client_id': 'PEfNcuS.Uyy3K4OFVF2hcXJWFkpGUyOB2MEbj24cb2GxBtVNQYAKTHFzCG37_BFT',
+        'client_secret': '1hum3OBLlt91GP0CKuDok9kp27U-P3IgTzaM1t5SCzhOjqIJi3Uha6hYFm_oWJeG.ozjq9kOyNRfpo.oT2l5S0X1OqxMc.r3FmwAN_Eelr3zMyBmRVUCzqfTXagiCeK5'
     })
 
 
@@ -41,12 +42,14 @@ def response_keys(response):
 
 
 def open_file(path, base64encode=False):
+    content = ""
     if platform.python_version()[:3] == '2.7':
         _file = open(path, "r")
         content = str(_file.read())
-    elif platform.python_version()[:3] in ['3.5','3.0','3.7']:
+    if float(platform.python_version()[:3]) >= 3.0:
         _file = open(path, "r",encoding='latin-1')
         content = _file.read().encode()
     if base64encode:
         return base64.b64encode(content).decode()
     return content
+
