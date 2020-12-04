@@ -7,6 +7,7 @@ get_innov()
 import innov
 
 
+
 class TestPayment(object):
 
     def test_payment_cash(self):
@@ -19,7 +20,7 @@ class TestPayment(object):
             'Issuer': {
                 'FiscalRegime': '601',
                 'Name': 'Max Solutions Co',
-                'Rfc': 'LAN7008173R5'
+                'Rfc': 'EKU9003173C9'
             },
             'ItemPayments': [{
                 'Currency': 'MXN',
@@ -72,7 +73,7 @@ class TestPayment(object):
             'Issuer': {
                 'FiscalRegime': '601',
                 'Name': 'Max Solutions Co',
-                'Rfc': 'LAN7008173R5'
+                'Rfc': 'EKU9003173C9'
             },
             'ItemPayments': [{
                 'Currency': 'MXN',

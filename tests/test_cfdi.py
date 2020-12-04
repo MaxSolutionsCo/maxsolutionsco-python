@@ -45,7 +45,7 @@ class TestCfdi(object):
             "Issuer": {
                 "FiscalRegime": "601",
                 "Name": "MAx Solutions Co",
-                "Rfc": "LAN7008173R5"
+                "Rfc": "EKU9003173C9"
             },
             "Items": [
                 {
@@ -79,19 +79,6 @@ class TestCfdi(object):
         assert is_base64(payload['ContentXml'])
         assert is_uuid(payload['Uuid'])
 
-    """
-    def test_stamp_cancel(self):
-        
-            Staging environment is not possible cancel UUID,
-            only allowed on live environment.
-        
-        
-        response = innov.Cfdi.cancel('LAN7008173R5', 'E4CF456D-C482-4F10-A9B5-F5A0CE4AB0FB')
-        assert response_keys(response)
-        payload = response['Payload']
-        assert isinstance(payload, dict)
-        assert 'State' in list(payload.keys())
-    """
 
     def test_chain(self):
         data = {
