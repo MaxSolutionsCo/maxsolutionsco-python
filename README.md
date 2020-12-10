@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/semv-1.0.9-green">
   </a>
 </p>
-# Max Solutions Co Python SDK
+# Max Services Biz Python SDK
 
 ## Contenido
 * Instación
@@ -35,17 +35,17 @@
 Usando ``pip``: 
 
 ```bash
-    pip install git+https://github.com/MaxSolutionsCo/innov-python
+    pip install git+https://github.com/maxsbiz/sdk-python
 ```
 o: 
 ```bash
-    git clone https://github.com/MaxSolutionsCo/innov-python.git
-    cd innov-python
+    git clone https://github.com/maxsbiz/sdk-python.git
+    cd sdk-python
     python setup.py install
 ```
 
 ## Configuración 
-Regístrese para obtener una cuenta y obtenga su ``client_id`` y ``client_secret`` en [Producción](https://max-solutions.co) o [Pruebas](https://api.sandbox.max-solutions.co).
+Regístrese para obtener una cuenta y obtenga su ``client_id`` y ``client_secret`` en [Producción](https://api.maxs.biz) o [Pruebas](https://api.sandbox.maxs.biz).
 ```python 
 import innov 
 innov.configure({
@@ -176,8 +176,3 @@ data = {
 response = innov.Cfdi.validate_uuid(data=[data])
 
 ```
-
-## Licencia
-* [Apache 2.0](LICENSE)
-## Autor
-* [Max Solutions, Co](https://max-solutions.co)
