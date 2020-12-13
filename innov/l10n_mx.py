@@ -10,6 +10,12 @@ class L10MX:
 class MXCfdiv33(L10MX):
 
     @classmethod
+    def PDF(cls, data, api=None):
+        api = api or default_api()
+        url = join_url(cls.url, '/cfdi-33/xml-pdf')
+        return api.post(url, data)
+
+    @classmethod
     def Estado(cls, data, api=None):
         api = api or default_api()
         url = join_url(cls.url, '/cfdi-33/estado')
