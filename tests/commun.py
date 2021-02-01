@@ -13,8 +13,8 @@ import innov
 def get_innov():
     return innov.configure({
         'mode': 'sandbox',  # sandbox or live
-        'client_id': 'PEfNcuS.Uyy3K4OFVF2hcXJWFkpGUyOB2MEbj24cb2GxBtVNQYAKTHFzCG37_BFT',
-        'client_secret': '1hum3OBLlt91GP0CKuDok9kp27U-P3IgTzaM1t5SCzhOjqIJi3Uha6hYFm_oWJeG.ozjq9kOyNRfpo.oT2l5S0X1OqxMc.r3FmwAN_Eelr3zMyBmRVUCzqfTXagiCeK5'
+        'client_id': 'jFBEDC97BOrxUIPuO4mB9oGhCF1MwK7f',
+        'client_secret': 'SoEh6njLpSlTyrLcoyjbW4IzLfod74G3uA2YmL1Tt.hqrwhcnCGK.BDZ_F91N9FiiKWaBVSpyhH2gvOB.W8LB0E2qgd31XvT'
     })
 
 
