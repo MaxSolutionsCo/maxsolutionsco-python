@@ -5,7 +5,7 @@ from .api import default as default_api
 
 
 class Cfdi:
-    path = 'v1/cfdi/'
+    path = 'v1/cfdi'
 
     @classmethod
     def stamp(cls, data, api=None):
@@ -51,7 +51,7 @@ class Cfdi:
 
 
 class CfdiPayment:
-    path = 'v1/cfdi/payment/'
+    path = 'v1/cfdi/payment'
 
     @classmethod
     def stamp(cls, data, api=None):
@@ -61,7 +61,7 @@ class CfdiPayment:
 
 
 class CfdiCsd:
-    path = 'v1/cfdi/'
+    path = 'v1/cfdi'
 
     @classmethod
     def create(cls, data, api=None):

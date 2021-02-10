@@ -5,7 +5,7 @@ from .api import default as default_api
 
 
 class L10MX:
-    url = "/v1/mx/"
+    url = "/v1/mx"
     
 class MXCfdiv33(L10MX):
 
