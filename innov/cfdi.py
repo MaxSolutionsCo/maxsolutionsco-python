@@ -5,7 +5,7 @@ from .api import default as default_api
 
 
 class Cfdi:
-    path = 'v1/cfdi/'
+    path = 'v1/cfdi'
 
     @classmethod
     def stamp(cls, data, api=None):
@@ -21,7 +21,7 @@ class Cfdi:
 
     @classmethod
     def validate_uuid(cls, data, api=None):
-        path = join_url(cls.path, 'validate/uuid')
+        path = join_url(cls.path, 'validate','uuid')
         api = api or default_api()
         return api.post(path, data)
 
@@ -33,25 +33,25 @@ class Cfdi:
 
     @classmethod
     def chain_cfdi(cls, data, api=None):
-        path = join_url(cls.path, 'chain/cfdi')
+        path = join_url(cls.path, 'chain','cfdi')
         api = api or default_api()
         return api.post(path, data)
 
     @classmethod
     def chain_tfd(cls, data, api=None):
-        path = join_url(cls.path, 'chain/tfd')
+        path = join_url(cls.path, 'chain','tfd')
         api = api or default_api()
         return api.post(path, data)
 
     @classmethod
     def status(cls, rfc_issuer, uuid, api=None):
         api = api or default_api()
-        path = join_url(cls.path, 'stamp/status', rfc_issuer, uuid)
+        path = join_url(cls.path, 'stamp','status', rfc_issuer, uuid)
         return api.get(path)
 
 
 class CfdiPayment:
-    path = 'v1/cfdi/payment/'
+    path = 'v1/cfdi/payment'
 
     @classmethod
     def stamp(cls, data, api=None):
@@ -61,7 +61,7 @@ class CfdiPayment:
 
 
 class CfdiCsd:
-    path = 'v1/cfdi/'
+    path = 'v1/cfdi'
 
     @classmethod
     def create(cls, data, api=None):
