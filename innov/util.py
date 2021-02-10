@@ -33,15 +33,9 @@ def join_url(url, *paths):
         >>> util.join_url('api.sandbox.innov.biz', '/v1','/cfdi/')
         'api.sandbox.innov.biz/v1/demo/'
     """
-    if platform.python_version()[:3] == '3.7':
-        from urllib.parse import urljoin        
-        path =  "/".join(map(lambda x: str(x).strip('/'), paths))
-        return urljoin(url, path)
-        
     for path in paths:
         url = re.sub(r'/?$', re.sub(r'^/?', '/', path), url)
     return url
-
 
 def base64url_decode(input):
     if isinstance(input, text_type):
