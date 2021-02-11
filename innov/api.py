@@ -10,11 +10,11 @@ from .config import __endpoint_map__, __version__
 from .util import join_url, merge_dict, base64url_decode, error_tracking
 from .exceptions import *
 
-try:
-    from gevent import monkey
-    monkey.patch_all()
-except ImportError:
-    pass
+#try:
+#    from gevent import monkey
+#    monkey.patch_all()
+#except ImportError:
+#    pass
 
 log = logging.getLogger(__name__)
 
