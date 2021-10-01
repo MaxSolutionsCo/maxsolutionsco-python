@@ -19,10 +19,10 @@ setup(
     install_requires=[
         'requests>=2.11.1',
         'simplejson>=3.16.0',
-        'pytest>=4.3.0'
+        #'pytest>=4.3.0'
     ],
-    setup_requires=["pytest-runner"],
-    tests_require=["pytest"],
+    #setup_requires=["pytest-runner"],
+    #tests_require=["pytest"],
     classifiers=[
         'Intended Audience :: Developers',
         'Operating system :: OS Independent',
